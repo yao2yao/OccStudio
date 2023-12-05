@@ -1,0 +1,27 @@
+cmake_minimum_required (VERSION 3.8)
+
+include_directories(${CMAKE_SOURCE_DIR}/OccCore7.7.0/inc)
+
+set_property(GLOBAL PROPERTY OrgFoundationClassesSRCLIST)
+dirlist(OrgFoundationClassesSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/FoundationClasses/TKernel "TKernel")
+dirlist(OrgFoundationClassesSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/FoundationClasses/TKMath "TKMath")
+get_property(FoundationClassesSRCLIST GLOBAL PROPERTY OrgFoundationClassesSRCLIST)
+add_library(FoundationClasses ${FoundationClassesSRCLIST})
+
+set_property(GLOBAL PROPERTY OrgModelingDataSRCLIST)
+dirlist(OrgModelingDataSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingData/TKBRep "TKBRep")
+dirlist(OrgModelingDataSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingData/TKG2d "TKG2d")
+dirlist(OrgModelingDataSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingData/TKG3d "TKG3d")
+dirlist(OrgModelingDataSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingData/TKGeomBase "TKGeomBase")
+get_property(ModelingDataSRCLIST GLOBAL PROPERTY OrgModelingDataSRCLIST)
+add_library(ModelingData ${ModelingDataSRCLIST})
+
+set_property(GLOBAL PROPERTY OrgModelingAlgorithmsSRCLIST)
+dirlist(OrgModelingAlgorithmsSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingAlgorithms/TKTopAlgo "TKTopAlgo")
+dirlist(OrgModelingAlgorithmsSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingAlgorithms/TKGeomAlgo "TKGeomAlgo")
+dirlist(OrgModelingAlgorithmsSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingAlgorithms/TKMesh "TKMesh")
+dirlist(OrgModelingAlgorithmsSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingAlgorithms/TKXMesh "TKXMesh")
+dirlist(OrgModelingAlgorithmsSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingAlgorithms/TKPrim "TKPrim")
+dirlist(OrgModelingAlgorithmsSRCLIST ${CMAKE_SOURCE_DIR}/OccCore7.7.0/src/ModelingAlgorithms/TKShHealing "TKShHealing")
+get_property(ModelingAlgorithmsSRCLIST GLOBAL PROPERTY OrgModelingAlgorithmsSRCLIST)
+add_library(ModelingAlgorithms ${ModelingAlgorithmsSRCLIST})
